@@ -25,7 +25,8 @@ class MyDslGenerator extends AbstractGenerator {
 
 		val root = resource.allContents.head as Model; 
 		if (root !== null) { 
-			fsa.generateFile("RulesOfLife.java", FileGenerator.toFile(root)) 
+			var path = "../src/GameOfLife/"
+			fsa.generateFile(path+"RulesOfLife.java", FileGenerator.toFile(root)) 
 		}
 	}
 	

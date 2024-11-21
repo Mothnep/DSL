@@ -94,10 +94,18 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyDslPackage.RULE_DEFINITION:
+      {
+        ruleDefinition ruleDefinition = (ruleDefinition)theEObject;
+        T result = caseruleDefinition(ruleDefinition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyDslPackage.LIVE_TO_DEAD_RULE:
       {
         LiveToDeadRule liveToDeadRule = (LiveToDeadRule)theEObject;
         T result = caseLiveToDeadRule(liveToDeadRule);
+        if (result == null) result = caseruleDefinition(liveToDeadRule);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -105,6 +113,7 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         LiveToAliveRule liveToAliveRule = (LiveToAliveRule)theEObject;
         T result = caseLiveToAliveRule(liveToAliveRule);
+        if (result == null) result = caseruleDefinition(liveToAliveRule);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -112,6 +121,7 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         DeadToAliveRule deadToAliveRule = (DeadToAliveRule)theEObject;
         T result = caseDeadToAliveRule(deadToAliveRule);
+        if (result == null) result = caseruleDefinition(deadToAliveRule);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -198,6 +208,22 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caserulesDefinition(rulesDefinition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>rule Definition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>rule Definition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseruleDefinition(ruleDefinition object)
   {
     return null;
   }

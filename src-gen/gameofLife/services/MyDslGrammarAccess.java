@@ -142,47 +142,49 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "gameofLife.MyDsl.rulesDefinition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cRulesKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cLiveToDeadAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cLiveToDeadLiveToDeadRuleParserRuleCall_1_0 = (RuleCall)cLiveToDeadAssignment_1.eContents().get(0);
-		private final Assignment cLiveToAliveAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cLiveToAliveLiveToAliveRuleParserRuleCall_2_0 = (RuleCall)cLiveToAliveAssignment_2.eContents().get(0);
-		private final Assignment cDeadToAliveAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDeadToAliveDeadToAliveRuleParserRuleCall_3_0 = (RuleCall)cDeadToAliveAssignment_3.eContents().get(0);
+		private final Assignment cRulesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cRulesRuleDefinitionParserRuleCall_1_0 = (RuleCall)cRulesAssignment_1.eContents().get(0);
 		
 		//rulesDefinition:
-		//    'rules'
-		//    liveToDead+=LiveToDeadRule*
-		//    liveToAlive+=LiveToAliveRule*
-		//    deadToAlive+=DeadToAliveRule*
+		//    'rules' (rules+=ruleDefinition)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'rules'
-		//liveToDead+=LiveToDeadRule*
-		//liveToAlive+=LiveToAliveRule*
-		//deadToAlive+=DeadToAliveRule*
+		//'rules' (rules+=ruleDefinition)*
 		public Group getGroup() { return cGroup; }
 		
 		//'rules'
 		public Keyword getRulesKeyword_0() { return cRulesKeyword_0; }
 		
-		//liveToDead+=LiveToDeadRule*
-		public Assignment getLiveToDeadAssignment_1() { return cLiveToDeadAssignment_1; }
+		//(rules+=ruleDefinition)*
+		public Assignment getRulesAssignment_1() { return cRulesAssignment_1; }
+		
+		//ruleDefinition
+		public RuleCall getRulesRuleDefinitionParserRuleCall_1_0() { return cRulesRuleDefinitionParserRuleCall_1_0; }
+	}
+	public class RuleDefinitionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "gameofLife.MyDsl.ruleDefinition");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cLiveToDeadRuleParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cLiveToAliveRuleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDeadToAliveRuleParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//ruleDefinition:
+		//    LiveToDeadRule | LiveToAliveRule | DeadToAliveRule
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//LiveToDeadRule | LiveToAliveRule | DeadToAliveRule
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//LiveToDeadRule
-		public RuleCall getLiveToDeadLiveToDeadRuleParserRuleCall_1_0() { return cLiveToDeadLiveToDeadRuleParserRuleCall_1_0; }
-		
-		//liveToAlive+=LiveToAliveRule*
-		public Assignment getLiveToAliveAssignment_2() { return cLiveToAliveAssignment_2; }
+		public RuleCall getLiveToDeadRuleParserRuleCall_0() { return cLiveToDeadRuleParserRuleCall_0; }
 		
 		//LiveToAliveRule
-		public RuleCall getLiveToAliveLiveToAliveRuleParserRuleCall_2_0() { return cLiveToAliveLiveToAliveRuleParserRuleCall_2_0; }
-		
-		//deadToAlive+=DeadToAliveRule*
-		public Assignment getDeadToAliveAssignment_3() { return cDeadToAliveAssignment_3; }
+		public RuleCall getLiveToAliveRuleParserRuleCall_1() { return cLiveToAliveRuleParserRuleCall_1; }
 		
 		//DeadToAliveRule
-		public RuleCall getDeadToAliveDeadToAliveRuleParserRuleCall_3_0() { return cDeadToAliveDeadToAliveRuleParserRuleCall_3_0; }
+		public RuleCall getDeadToAliveRuleParserRuleCall_2() { return cDeadToAliveRuleParserRuleCall_2; }
 	}
 	public class LiveToDeadRuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "gameofLife.MyDsl.LiveToDeadRule");
@@ -487,6 +489,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final ModelElements pModel;
 	private final GridDefinitionElements pGridDefinition;
 	private final RulesDefinitionElements pRulesDefinition;
+	private final RuleDefinitionElements pRuleDefinition;
 	private final LiveToDeadRuleElements pLiveToDeadRule;
 	private final LiveToAliveRuleElements pLiveToAliveRule;
 	private final DeadToAliveRuleElements pDeadToAliveRule;
@@ -508,6 +511,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pModel = new ModelElements();
 		this.pGridDefinition = new GridDefinitionElements();
 		this.pRulesDefinition = new RulesDefinitionElements();
+		this.pRuleDefinition = new RuleDefinitionElements();
 		this.pLiveToDeadRule = new LiveToDeadRuleElements();
 		this.pLiveToAliveRule = new LiveToAliveRuleElements();
 		this.pDeadToAliveRule = new DeadToAliveRuleElements();
@@ -576,10 +580,7 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//rulesDefinition:
-	//    'rules'
-	//    liveToDead+=LiveToDeadRule*
-	//    liveToAlive+=LiveToAliveRule*
-	//    deadToAlive+=DeadToAliveRule*
+	//    'rules' (rules+=ruleDefinition)*
 	//;
 	public RulesDefinitionElements getRulesDefinitionAccess() {
 		return pRulesDefinition;
@@ -587,6 +588,17 @@ public class MyDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getRulesDefinitionRule() {
 		return getRulesDefinitionAccess().getRule();
+	}
+	
+	//ruleDefinition:
+	//    LiveToDeadRule | LiveToAliveRule | DeadToAliveRule
+	//;
+	public RuleDefinitionElements getRuleDefinitionAccess() {
+		return pRuleDefinition;
+	}
+	
+	public ParserRule getRuleDefinitionRule() {
+		return getRuleDefinitionAccess().getRule();
 	}
 	
 	//LiveToDeadRule:

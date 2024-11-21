@@ -23,7 +23,8 @@ public class MyDslGenerator extends AbstractGenerator {
     EObject _head = IteratorExtensions.<EObject>head(resource.getAllContents());
     final Model root = ((Model) _head);
     if ((root != null)) {
-      fsa.generateFile("RulesOfLife.java", FileGenerator.toFile(root));
+      String path = "../src/GameOfLife/";
+      fsa.generateFile((path + "RulesOfLife.java"), FileGenerator.toFile(root));
     }
   }
 }

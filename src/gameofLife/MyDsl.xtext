@@ -20,10 +20,11 @@ gridDefinition:
 ;
 
 rulesDefinition: 
-    'rules' 
-    liveToDead+=LiveToDeadRule* 
-    liveToAlive+=LiveToAliveRule* 
-    deadToAlive+=DeadToAliveRule* 
+    'rules' (rules+=ruleDefinition)*
+;
+
+ruleDefinition:
+	LiveToDeadRule | LiveToAliveRule | DeadToAliveRule
 ;
 
 LiveToDeadRule:

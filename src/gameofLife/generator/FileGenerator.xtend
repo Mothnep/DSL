@@ -37,7 +37,7 @@ class FileGenerator {
                 «ENDFOR»
             }
 
-            public void computeSurvivors(ArrayList<Point> survivingCells) {
+            public static void computeSurvivors(boolean[][] gameBoard, ArrayList<Point> survivingCells) {
                 for (int i = 1; i < gameBoard.length - 1; i++) {
                     for (int j = 1; j < gameBoard[0].length - 1; j++) {
                         int surrounding = 0;
@@ -50,27 +50,27 @@ class FileGenerator {
                         if (gameBoard[i + 1][j]) surrounding++;
                         if (gameBoard[i + 1][j + 1]) surrounding++;
 
-                        «generateRules(root.rules, "i-1", "j-1")»
+                        
                     }
                 }
             }
-
-            «generateApplyRulesMethod(root.rules)»
-
-            public static void main(String[] args) {
-                RulesOfLife rules = new RulesOfLife();
-                ArrayList<Point> survivingCells = new ArrayList<>();
-                rules.computeSurvivors(survivingCells);
-
-                System.out.println("Surviving Cells: ");
-                for (Point cell : survivingCells) {
-                    System.out.println("(" + cell.x + ", " + cell.y + ")");
-                }
-            }
+        
+        
+        public static ArrayList<Point> initialCoords(){
+        	«startBoard(root)»
+        }
         }
     '''
 	
-	def CharSequence generateRules(RulesDefinition rulesDefinition, String x, String y) '''
+	def static startBoard(Model root) '''
+	    ArrayList<Point> coords = new ArrayList<>();
+	    «FOR coord : root.grid.aliveCells»
+	        coords.add(new Point(«coord.x», «coord.y»));
+	    «ENDFOR»
+	    return coords;
+	'''
+
+	def static CharSequence generateRules(RulesDefinition rulesDefinition, String x, String y) '''
         «FOR rule : rulesDefinition.liveToDead»
         // Rule: Live to Dead
         if (gameBoard[i][j] && surrounding «conditionToSymbol(rule.condition)» «rule.condition.number») {
@@ -91,7 +91,7 @@ class FileGenerator {
         «ENDFOR»
     '''
     
-    def CharSequence generateApplyRulesMethod(RulesDefinition rulesDefinition) '''
+    def static CharSequence generateApplyRulesMethod(RulesDefinition rulesDefinition) '''
         private boolean applyRules(boolean isAlive, int liveNeighbors) {
             «FOR rule : rulesDefinition.liveToDead»
             if (isAlive && liveNeighbors «conditionToSymbol(rule.condition)» «rule.condition.number») {
@@ -112,7 +112,7 @@ class FileGenerator {
         }
     '''
 
-    def String conditionToSymbol(Condition condition) {
+    def static String conditionToSymbol(Condition condition) {
         switch (condition) {
             case ">": return ">"
             case "<": return "<"

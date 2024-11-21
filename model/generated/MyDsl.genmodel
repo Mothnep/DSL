@@ -17,19 +17,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//gridDefinition/aliveCells"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//rulesDefinition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//rulesDefinition/liveToDead"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//rulesDefinition/liveToAlive"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//rulesDefinition/deadToAlive"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//rulesDefinition/rules"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//LiveToDeadRule">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LiveToDeadRule/condition"/>
+    <genClasses ecoreClass="MyDsl.ecore#//ruleDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//ruleDefinition/condition"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//LiveToAliveRule">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LiveToAliveRule/condition"/>
-    </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//DeadToAliveRule">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//DeadToAliveRule/condition"/>
-    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//LiveToDeadRule"/>
+    <genClasses ecoreClass="MyDsl.ecore#//LiveToAliveRule"/>
+    <genClasses ecoreClass="MyDsl.ecore#//DeadToAliveRule"/>
     <genClasses ecoreClass="MyDsl.ecore#//stepsDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//stepsDefinition/count"/>
     </genClasses>

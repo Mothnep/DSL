@@ -68,6 +68,7 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.MODEL: return createModel();
       case MyDslPackage.GRID_DEFINITION: return creategridDefinition();
       case MyDslPackage.RULES_DEFINITION: return createrulesDefinition();
+      case MyDslPackage.RULE_DEFINITION: return createruleDefinition();
       case MyDslPackage.LIVE_TO_DEAD_RULE: return createLiveToDeadRule();
       case MyDslPackage.LIVE_TO_ALIVE_RULE: return createLiveToAliveRule();
       case MyDslPackage.DEAD_TO_ALIVE_RULE: return createDeadToAliveRule();
@@ -115,6 +116,18 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     rulesDefinitionImpl rulesDefinition = new rulesDefinitionImpl();
     return rulesDefinition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ruleDefinition createruleDefinition()
+  {
+    ruleDefinitionImpl ruleDefinition = new ruleDefinitionImpl();
+    return ruleDefinition;
   }
 
   /**

@@ -91,6 +91,11 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createrulesDefinitionAdapter();
       }
       @Override
+      public Adapter caseruleDefinition(ruleDefinition object)
+      {
+        return createruleDefinitionAdapter();
+      }
+      @Override
       public Adapter caseLiveToDeadRule(LiveToDeadRule object)
       {
         return createLiveToDeadRuleAdapter();
@@ -193,6 +198,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createrulesDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link gameofLife.myDsl.ruleDefinition <em>rule Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see gameofLife.myDsl.ruleDefinition
+   * @generated
+   */
+  public Adapter createruleDefinitionAdapter()
   {
     return null;
   }

@@ -14,6 +14,7 @@ import gameofLife.myDsl.MyDslPackage;
 import gameofLife.myDsl.Neighbor;
 import gameofLife.myDsl.NeighborCheck;
 import gameofLife.myDsl.gridDefinition;
+import gameofLife.myDsl.ruleDefinition;
 import gameofLife.myDsl.rulesDefinition;
 import gameofLife.myDsl.stepsDefinition;
 
@@ -52,6 +53,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass rulesDefinitionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ruleDefinitionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -276,7 +284,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getrulesDefinition_LiveToDead()
+  public EReference getrulesDefinition_Rules()
   {
     return (EReference)rulesDefinitionEClass.getEStructuralFeatures().get(0);
   }
@@ -287,9 +295,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getrulesDefinition_LiveToAlive()
+  public EClass getruleDefinition()
   {
-    return (EReference)rulesDefinitionEClass.getEStructuralFeatures().get(1);
+    return ruleDefinitionEClass;
   }
 
   /**
@@ -298,9 +306,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getrulesDefinition_DeadToAlive()
+  public EReference getruleDefinition_Condition()
   {
-    return (EReference)rulesDefinitionEClass.getEStructuralFeatures().get(2);
+    return (EReference)ruleDefinitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -320,17 +328,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getLiveToDeadRule_Condition()
-  {
-    return (EReference)liveToDeadRuleEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getLiveToAliveRule()
   {
     return liveToAliveRuleEClass;
@@ -342,31 +339,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getLiveToAliveRule_Condition()
-  {
-    return (EReference)liveToAliveRuleEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getDeadToAliveRule()
   {
     return deadToAliveRuleEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getDeadToAliveRule_Condition()
-  {
-    return (EReference)deadToAliveRuleEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -543,18 +518,16 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(gridDefinitionEClass, GRID_DEFINITION__ALIVE_CELLS);
 
     rulesDefinitionEClass = createEClass(RULES_DEFINITION);
-    createEReference(rulesDefinitionEClass, RULES_DEFINITION__LIVE_TO_DEAD);
-    createEReference(rulesDefinitionEClass, RULES_DEFINITION__LIVE_TO_ALIVE);
-    createEReference(rulesDefinitionEClass, RULES_DEFINITION__DEAD_TO_ALIVE);
+    createEReference(rulesDefinitionEClass, RULES_DEFINITION__RULES);
+
+    ruleDefinitionEClass = createEClass(RULE_DEFINITION);
+    createEReference(ruleDefinitionEClass, RULE_DEFINITION__CONDITION);
 
     liveToDeadRuleEClass = createEClass(LIVE_TO_DEAD_RULE);
-    createEReference(liveToDeadRuleEClass, LIVE_TO_DEAD_RULE__CONDITION);
 
     liveToAliveRuleEClass = createEClass(LIVE_TO_ALIVE_RULE);
-    createEReference(liveToAliveRuleEClass, LIVE_TO_ALIVE_RULE__CONDITION);
 
     deadToAliveRuleEClass = createEClass(DEAD_TO_ALIVE_RULE);
-    createEReference(deadToAliveRuleEClass, DEAD_TO_ALIVE_RULE__CONDITION);
 
     stepsDefinitionEClass = createEClass(STEPS_DEFINITION);
     createEAttribute(stepsDefinitionEClass, STEPS_DEFINITION__COUNT);
@@ -603,6 +576,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    liveToDeadRuleEClass.getESuperTypes().add(this.getruleDefinition());
+    liveToAliveRuleEClass.getESuperTypes().add(this.getruleDefinition());
+    deadToAliveRuleEClass.getESuperTypes().add(this.getruleDefinition());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -616,18 +592,16 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getgridDefinition_AliveCells(), this.getCellCoord(), null, "aliveCells", null, 0, -1, gridDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rulesDefinitionEClass, rulesDefinition.class, "rulesDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getrulesDefinition_LiveToDead(), this.getLiveToDeadRule(), null, "liveToDead", null, 0, -1, rulesDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getrulesDefinition_LiveToAlive(), this.getLiveToAliveRule(), null, "liveToAlive", null, 0, -1, rulesDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getrulesDefinition_DeadToAlive(), this.getDeadToAliveRule(), null, "deadToAlive", null, 0, -1, rulesDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getrulesDefinition_Rules(), this.getruleDefinition(), null, "rules", null, 0, -1, rulesDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ruleDefinitionEClass, ruleDefinition.class, "ruleDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getruleDefinition_Condition(), this.getCondition(), null, "condition", null, 0, 1, ruleDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(liveToDeadRuleEClass, LiveToDeadRule.class, "LiveToDeadRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLiveToDeadRule_Condition(), this.getCondition(), null, "condition", null, 0, 1, LiveToDeadRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(liveToAliveRuleEClass, LiveToAliveRule.class, "LiveToAliveRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLiveToAliveRule_Condition(), this.getCondition(), null, "condition", null, 0, 1, LiveToAliveRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(deadToAliveRuleEClass, DeadToAliveRule.class, "DeadToAliveRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDeadToAliveRule_Condition(), this.getCondition(), null, "condition", null, 0, 1, DeadToAliveRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stepsDefinitionEClass, stepsDefinition.class, "stepsDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getstepsDefinition_Count(), ecorePackage.getEInt(), "count", null, 0, 1, stepsDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

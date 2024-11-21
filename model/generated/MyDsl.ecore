@@ -16,25 +16,16 @@
         eType="#//CellCoord" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="rulesDefinition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="liveToDead" upperBound="-1"
-        eType="#//LiveToDeadRule" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="liveToAlive" upperBound="-1"
-        eType="#//LiveToAliveRule" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="deadToAlive" upperBound="-1"
-        eType="#//DeadToAliveRule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
+        eType="#//ruleDefinition" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LiveToDeadRule">
+  <eClassifiers xsi:type="ecore:EClass" name="ruleDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LiveToAliveRule">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeadToAliveRule">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
-        containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LiveToDeadRule" eSuperTypes="#//ruleDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LiveToAliveRule" eSuperTypes="#//ruleDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DeadToAliveRule" eSuperTypes="#//ruleDefinition"/>
   <eClassifiers xsi:type="ecore:EClass" name="stepsDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>

@@ -51,6 +51,15 @@ public interface MyDslFactory extends EFactory
   rulesDefinition createrulesDefinition();
 
   /**
+   * Returns a new object of class '<em>rule Definition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>rule Definition</em>'.
+   * @generated
+   */
+  ruleDefinition createruleDefinition();
+
+  /**
    * Returns a new object of class '<em>Live To Dead Rule</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

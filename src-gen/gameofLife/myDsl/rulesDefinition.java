@@ -16,9 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link gameofLife.myDsl.rulesDefinition#getLiveToDead <em>Live To Dead</em>}</li>
- *   <li>{@link gameofLife.myDsl.rulesDefinition#getLiveToAlive <em>Live To Alive</em>}</li>
- *   <li>{@link gameofLife.myDsl.rulesDefinition#getDeadToAlive <em>Dead To Alive</em>}</li>
+ *   <li>{@link gameofLife.myDsl.rulesDefinition#getRules <em>Rules</em>}</li>
  * </ul>
  *
  * @see gameofLife.myDsl.MyDslPackage#getrulesDefinition()
@@ -28,39 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface rulesDefinition extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Live To Dead</b></em>' containment reference list.
-   * The list contents are of type {@link gameofLife.myDsl.LiveToDeadRule}.
+   * Returns the value of the '<em><b>Rules</b></em>' containment reference list.
+   * The list contents are of type {@link gameofLife.myDsl.ruleDefinition}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Live To Dead</em>' containment reference list.
-   * @see gameofLife.myDsl.MyDslPackage#getrulesDefinition_LiveToDead()
+   * @return the value of the '<em>Rules</em>' containment reference list.
+   * @see gameofLife.myDsl.MyDslPackage#getrulesDefinition_Rules()
    * @model containment="true"
    * @generated
    */
-  EList<LiveToDeadRule> getLiveToDead();
-
-  /**
-   * Returns the value of the '<em><b>Live To Alive</b></em>' containment reference list.
-   * The list contents are of type {@link gameofLife.myDsl.LiveToAliveRule}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Live To Alive</em>' containment reference list.
-   * @see gameofLife.myDsl.MyDslPackage#getrulesDefinition_LiveToAlive()
-   * @model containment="true"
-   * @generated
-   */
-  EList<LiveToAliveRule> getLiveToAlive();
-
-  /**
-   * Returns the value of the '<em><b>Dead To Alive</b></em>' containment reference list.
-   * The list contents are of type {@link gameofLife.myDsl.DeadToAliveRule}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Dead To Alive</em>' containment reference list.
-   * @see gameofLife.myDsl.MyDslPackage#getrulesDefinition_DeadToAlive()
-   * @model containment="true"
-   * @generated
-   */
-  EList<DeadToAliveRule> getDeadToAlive();
+  EList<ruleDefinition> getRules();
 
 } // rulesDefinition

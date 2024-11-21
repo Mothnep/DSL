@@ -160,31 +160,13 @@ public interface MyDslPackage extends EPackage
   int RULES_DEFINITION = 2;
 
   /**
-   * The feature id for the '<em><b>Live To Dead</b></em>' containment reference list.
+   * The feature id for the '<em><b>Rules</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RULES_DEFINITION__LIVE_TO_DEAD = 0;
-
-  /**
-   * The feature id for the '<em><b>Live To Alive</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RULES_DEFINITION__LIVE_TO_ALIVE = 1;
-
-  /**
-   * The feature id for the '<em><b>Dead To Alive</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RULES_DEFINITION__DEAD_TO_ALIVE = 2;
+  int RULES_DEFINITION__RULES = 0;
 
   /**
    * The number of structural features of the '<em>rules Definition</em>' class.
@@ -193,7 +175,35 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RULES_DEFINITION_FEATURE_COUNT = 3;
+  int RULES_DEFINITION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link gameofLife.myDsl.impl.ruleDefinitionImpl <em>rule Definition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see gameofLife.myDsl.impl.ruleDefinitionImpl
+   * @see gameofLife.myDsl.impl.MyDslPackageImpl#getruleDefinition()
+   * @generated
+   */
+  int RULE_DEFINITION = 3;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RULE_DEFINITION__CONDITION = 0;
+
+  /**
+   * The number of structural features of the '<em>rule Definition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RULE_DEFINITION_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link gameofLife.myDsl.impl.LiveToDeadRuleImpl <em>Live To Dead Rule</em>}' class.
@@ -203,7 +213,7 @@ public interface MyDslPackage extends EPackage
    * @see gameofLife.myDsl.impl.MyDslPackageImpl#getLiveToDeadRule()
    * @generated
    */
-  int LIVE_TO_DEAD_RULE = 3;
+  int LIVE_TO_DEAD_RULE = 4;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -212,7 +222,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LIVE_TO_DEAD_RULE__CONDITION = 0;
+  int LIVE_TO_DEAD_RULE__CONDITION = RULE_DEFINITION__CONDITION;
 
   /**
    * The number of structural features of the '<em>Live To Dead Rule</em>' class.
@@ -221,7 +231,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LIVE_TO_DEAD_RULE_FEATURE_COUNT = 1;
+  int LIVE_TO_DEAD_RULE_FEATURE_COUNT = RULE_DEFINITION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link gameofLife.myDsl.impl.LiveToAliveRuleImpl <em>Live To Alive Rule</em>}' class.
@@ -231,7 +241,7 @@ public interface MyDslPackage extends EPackage
    * @see gameofLife.myDsl.impl.MyDslPackageImpl#getLiveToAliveRule()
    * @generated
    */
-  int LIVE_TO_ALIVE_RULE = 4;
+  int LIVE_TO_ALIVE_RULE = 5;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -240,7 +250,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LIVE_TO_ALIVE_RULE__CONDITION = 0;
+  int LIVE_TO_ALIVE_RULE__CONDITION = RULE_DEFINITION__CONDITION;
 
   /**
    * The number of structural features of the '<em>Live To Alive Rule</em>' class.
@@ -249,7 +259,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LIVE_TO_ALIVE_RULE_FEATURE_COUNT = 1;
+  int LIVE_TO_ALIVE_RULE_FEATURE_COUNT = RULE_DEFINITION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link gameofLife.myDsl.impl.DeadToAliveRuleImpl <em>Dead To Alive Rule</em>}' class.
@@ -259,7 +269,7 @@ public interface MyDslPackage extends EPackage
    * @see gameofLife.myDsl.impl.MyDslPackageImpl#getDeadToAliveRule()
    * @generated
    */
-  int DEAD_TO_ALIVE_RULE = 5;
+  int DEAD_TO_ALIVE_RULE = 6;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -268,7 +278,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEAD_TO_ALIVE_RULE__CONDITION = 0;
+  int DEAD_TO_ALIVE_RULE__CONDITION = RULE_DEFINITION__CONDITION;
 
   /**
    * The number of structural features of the '<em>Dead To Alive Rule</em>' class.
@@ -277,7 +287,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEAD_TO_ALIVE_RULE_FEATURE_COUNT = 1;
+  int DEAD_TO_ALIVE_RULE_FEATURE_COUNT = RULE_DEFINITION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link gameofLife.myDsl.impl.stepsDefinitionImpl <em>steps Definition</em>}' class.
@@ -287,7 +297,7 @@ public interface MyDslPackage extends EPackage
    * @see gameofLife.myDsl.impl.MyDslPackageImpl#getstepsDefinition()
    * @generated
    */
-  int STEPS_DEFINITION = 6;
+  int STEPS_DEFINITION = 7;
 
   /**
    * The feature id for the '<em><b>Count</b></em>' attribute.
@@ -315,7 +325,7 @@ public interface MyDslPackage extends EPackage
    * @see gameofLife.myDsl.impl.MyDslPackageImpl#getCondition()
    * @generated
    */
-  int CONDITION = 7;
+  int CONDITION = 8;
 
   /**
    * The feature id for the '<em><b>Number</b></em>' attribute.
@@ -343,7 +353,7 @@ public interface MyDslPackage extends EPackage
    * @see gameofLife.myDsl.impl.MyDslPackageImpl#getCellCoord()
    * @generated
    */
-  int CELL_COORD = 8;
+  int CELL_COORD = 9;
 
   /**
    * The feature id for the '<em><b>X</b></em>' attribute.
@@ -380,7 +390,7 @@ public interface MyDslPackage extends EPackage
    * @see gameofLife.myDsl.impl.MyDslPackageImpl#getNeighborCheck()
    * @generated
    */
-  int NEIGHBOR_CHECK = 9;
+  int NEIGHBOR_CHECK = 10;
 
   /**
    * The feature id for the '<em><b>Neighbor List</b></em>' containment reference list.
@@ -408,7 +418,7 @@ public interface MyDslPackage extends EPackage
    * @see gameofLife.myDsl.impl.MyDslPackageImpl#getNeighbor()
    * @generated
    */
-  int NEIGHBOR = 10;
+  int NEIGHBOR = 11;
 
   /**
    * The feature id for the '<em><b>Dx</b></em>' attribute.
@@ -535,37 +545,36 @@ public interface MyDslPackage extends EPackage
   EClass getrulesDefinition();
 
   /**
-   * Returns the meta object for the containment reference list '{@link gameofLife.myDsl.rulesDefinition#getLiveToDead <em>Live To Dead</em>}'.
+   * Returns the meta object for the containment reference list '{@link gameofLife.myDsl.rulesDefinition#getRules <em>Rules</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Live To Dead</em>'.
-   * @see gameofLife.myDsl.rulesDefinition#getLiveToDead()
+   * @return the meta object for the containment reference list '<em>Rules</em>'.
+   * @see gameofLife.myDsl.rulesDefinition#getRules()
    * @see #getrulesDefinition()
    * @generated
    */
-  EReference getrulesDefinition_LiveToDead();
+  EReference getrulesDefinition_Rules();
 
   /**
-   * Returns the meta object for the containment reference list '{@link gameofLife.myDsl.rulesDefinition#getLiveToAlive <em>Live To Alive</em>}'.
+   * Returns the meta object for class '{@link gameofLife.myDsl.ruleDefinition <em>rule Definition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Live To Alive</em>'.
-   * @see gameofLife.myDsl.rulesDefinition#getLiveToAlive()
-   * @see #getrulesDefinition()
+   * @return the meta object for class '<em>rule Definition</em>'.
+   * @see gameofLife.myDsl.ruleDefinition
    * @generated
    */
-  EReference getrulesDefinition_LiveToAlive();
+  EClass getruleDefinition();
 
   /**
-   * Returns the meta object for the containment reference list '{@link gameofLife.myDsl.rulesDefinition#getDeadToAlive <em>Dead To Alive</em>}'.
+   * Returns the meta object for the containment reference '{@link gameofLife.myDsl.ruleDefinition#getCondition <em>Condition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Dead To Alive</em>'.
-   * @see gameofLife.myDsl.rulesDefinition#getDeadToAlive()
-   * @see #getrulesDefinition()
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see gameofLife.myDsl.ruleDefinition#getCondition()
+   * @see #getruleDefinition()
    * @generated
    */
-  EReference getrulesDefinition_DeadToAlive();
+  EReference getruleDefinition_Condition();
 
   /**
    * Returns the meta object for class '{@link gameofLife.myDsl.LiveToDeadRule <em>Live To Dead Rule</em>}'.
@@ -578,17 +587,6 @@ public interface MyDslPackage extends EPackage
   EClass getLiveToDeadRule();
 
   /**
-   * Returns the meta object for the containment reference '{@link gameofLife.myDsl.LiveToDeadRule#getCondition <em>Condition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Condition</em>'.
-   * @see gameofLife.myDsl.LiveToDeadRule#getCondition()
-   * @see #getLiveToDeadRule()
-   * @generated
-   */
-  EReference getLiveToDeadRule_Condition();
-
-  /**
    * Returns the meta object for class '{@link gameofLife.myDsl.LiveToAliveRule <em>Live To Alive Rule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -599,17 +597,6 @@ public interface MyDslPackage extends EPackage
   EClass getLiveToAliveRule();
 
   /**
-   * Returns the meta object for the containment reference '{@link gameofLife.myDsl.LiveToAliveRule#getCondition <em>Condition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Condition</em>'.
-   * @see gameofLife.myDsl.LiveToAliveRule#getCondition()
-   * @see #getLiveToAliveRule()
-   * @generated
-   */
-  EReference getLiveToAliveRule_Condition();
-
-  /**
    * Returns the meta object for class '{@link gameofLife.myDsl.DeadToAliveRule <em>Dead To Alive Rule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -618,17 +605,6 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EClass getDeadToAliveRule();
-
-  /**
-   * Returns the meta object for the containment reference '{@link gameofLife.myDsl.DeadToAliveRule#getCondition <em>Condition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Condition</em>'.
-   * @see gameofLife.myDsl.DeadToAliveRule#getCondition()
-   * @see #getDeadToAliveRule()
-   * @generated
-   */
-  EReference getDeadToAliveRule_Condition();
 
   /**
    * Returns the meta object for class '{@link gameofLife.myDsl.stepsDefinition <em>steps Definition</em>}'.
@@ -859,28 +835,30 @@ public interface MyDslPackage extends EPackage
     EClass RULES_DEFINITION = eINSTANCE.getrulesDefinition();
 
     /**
-     * The meta object literal for the '<em><b>Live To Dead</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Rules</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RULES_DEFINITION__LIVE_TO_DEAD = eINSTANCE.getrulesDefinition_LiveToDead();
+    EReference RULES_DEFINITION__RULES = eINSTANCE.getrulesDefinition_Rules();
 
     /**
-     * The meta object literal for the '<em><b>Live To Alive</b></em>' containment reference list feature.
+     * The meta object literal for the '{@link gameofLife.myDsl.impl.ruleDefinitionImpl <em>rule Definition</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see gameofLife.myDsl.impl.ruleDefinitionImpl
+     * @see gameofLife.myDsl.impl.MyDslPackageImpl#getruleDefinition()
      * @generated
      */
-    EReference RULES_DEFINITION__LIVE_TO_ALIVE = eINSTANCE.getrulesDefinition_LiveToAlive();
+    EClass RULE_DEFINITION = eINSTANCE.getruleDefinition();
 
     /**
-     * The meta object literal for the '<em><b>Dead To Alive</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RULES_DEFINITION__DEAD_TO_ALIVE = eINSTANCE.getrulesDefinition_DeadToAlive();
+    EReference RULE_DEFINITION__CONDITION = eINSTANCE.getruleDefinition_Condition();
 
     /**
      * The meta object literal for the '{@link gameofLife.myDsl.impl.LiveToDeadRuleImpl <em>Live To Dead Rule</em>}' class.
@@ -893,14 +871,6 @@ public interface MyDslPackage extends EPackage
     EClass LIVE_TO_DEAD_RULE = eINSTANCE.getLiveToDeadRule();
 
     /**
-     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LIVE_TO_DEAD_RULE__CONDITION = eINSTANCE.getLiveToDeadRule_Condition();
-
-    /**
      * The meta object literal for the '{@link gameofLife.myDsl.impl.LiveToAliveRuleImpl <em>Live To Alive Rule</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -911,14 +881,6 @@ public interface MyDslPackage extends EPackage
     EClass LIVE_TO_ALIVE_RULE = eINSTANCE.getLiveToAliveRule();
 
     /**
-     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LIVE_TO_ALIVE_RULE__CONDITION = eINSTANCE.getLiveToAliveRule_Condition();
-
-    /**
      * The meta object literal for the '{@link gameofLife.myDsl.impl.DeadToAliveRuleImpl <em>Dead To Alive Rule</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -927,14 +889,6 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EClass DEAD_TO_ALIVE_RULE = eINSTANCE.getDeadToAliveRule();
-
-    /**
-     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEAD_TO_ALIVE_RULE__CONDITION = eINSTANCE.getDeadToAliveRule_Condition();
 
     /**
      * The meta object literal for the '{@link gameofLife.myDsl.impl.stepsDefinitionImpl <em>steps Definition</em>}' class.

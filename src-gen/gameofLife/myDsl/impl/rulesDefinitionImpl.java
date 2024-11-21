@@ -3,10 +3,8 @@
  */
 package gameofLife.myDsl.impl;
 
-import gameofLife.myDsl.DeadToAliveRule;
-import gameofLife.myDsl.LiveToAliveRule;
-import gameofLife.myDsl.LiveToDeadRule;
 import gameofLife.myDsl.MyDslPackage;
+import gameofLife.myDsl.ruleDefinition;
 import gameofLife.myDsl.rulesDefinition;
 
 import java.util.Collection;
@@ -31,9 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link gameofLife.myDsl.impl.rulesDefinitionImpl#getLiveToDead <em>Live To Dead</em>}</li>
- *   <li>{@link gameofLife.myDsl.impl.rulesDefinitionImpl#getLiveToAlive <em>Live To Alive</em>}</li>
- *   <li>{@link gameofLife.myDsl.impl.rulesDefinitionImpl#getDeadToAlive <em>Dead To Alive</em>}</li>
+ *   <li>{@link gameofLife.myDsl.impl.rulesDefinitionImpl#getRules <em>Rules</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,34 +37,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class rulesDefinitionImpl extends MinimalEObjectImpl.Container implements rulesDefinition
 {
   /**
-   * The cached value of the '{@link #getLiveToDead() <em>Live To Dead</em>}' containment reference list.
+   * The cached value of the '{@link #getRules() <em>Rules</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLiveToDead()
+   * @see #getRules()
    * @generated
    * @ordered
    */
-  protected EList<LiveToDeadRule> liveToDead;
-
-  /**
-   * The cached value of the '{@link #getLiveToAlive() <em>Live To Alive</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLiveToAlive()
-   * @generated
-   * @ordered
-   */
-  protected EList<LiveToAliveRule> liveToAlive;
-
-  /**
-   * The cached value of the '{@link #getDeadToAlive() <em>Dead To Alive</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDeadToAlive()
-   * @generated
-   * @ordered
-   */
-  protected EList<DeadToAliveRule> deadToAlive;
+  protected EList<ruleDefinition> rules;
 
   /**
    * <!-- begin-user-doc -->
@@ -97,43 +73,13 @@ public class rulesDefinitionImpl extends MinimalEObjectImpl.Container implements
    * @generated
    */
   @Override
-  public EList<LiveToDeadRule> getLiveToDead()
+  public EList<ruleDefinition> getRules()
   {
-    if (liveToDead == null)
+    if (rules == null)
     {
-      liveToDead = new EObjectContainmentEList<LiveToDeadRule>(LiveToDeadRule.class, this, MyDslPackage.RULES_DEFINITION__LIVE_TO_DEAD);
+      rules = new EObjectContainmentEList<ruleDefinition>(ruleDefinition.class, this, MyDslPackage.RULES_DEFINITION__RULES);
     }
-    return liveToDead;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<LiveToAliveRule> getLiveToAlive()
-  {
-    if (liveToAlive == null)
-    {
-      liveToAlive = new EObjectContainmentEList<LiveToAliveRule>(LiveToAliveRule.class, this, MyDslPackage.RULES_DEFINITION__LIVE_TO_ALIVE);
-    }
-    return liveToAlive;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<DeadToAliveRule> getDeadToAlive()
-  {
-    if (deadToAlive == null)
-    {
-      deadToAlive = new EObjectContainmentEList<DeadToAliveRule>(DeadToAliveRule.class, this, MyDslPackage.RULES_DEFINITION__DEAD_TO_ALIVE);
-    }
-    return deadToAlive;
+    return rules;
   }
 
   /**
@@ -146,12 +92,8 @@ public class rulesDefinitionImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case MyDslPackage.RULES_DEFINITION__LIVE_TO_DEAD:
-        return ((InternalEList<?>)getLiveToDead()).basicRemove(otherEnd, msgs);
-      case MyDslPackage.RULES_DEFINITION__LIVE_TO_ALIVE:
-        return ((InternalEList<?>)getLiveToAlive()).basicRemove(otherEnd, msgs);
-      case MyDslPackage.RULES_DEFINITION__DEAD_TO_ALIVE:
-        return ((InternalEList<?>)getDeadToAlive()).basicRemove(otherEnd, msgs);
+      case MyDslPackage.RULES_DEFINITION__RULES:
+        return ((InternalEList<?>)getRules()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -166,12 +108,8 @@ public class rulesDefinitionImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case MyDslPackage.RULES_DEFINITION__LIVE_TO_DEAD:
-        return getLiveToDead();
-      case MyDslPackage.RULES_DEFINITION__LIVE_TO_ALIVE:
-        return getLiveToAlive();
-      case MyDslPackage.RULES_DEFINITION__DEAD_TO_ALIVE:
-        return getDeadToAlive();
+      case MyDslPackage.RULES_DEFINITION__RULES:
+        return getRules();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -187,17 +125,9 @@ public class rulesDefinitionImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case MyDslPackage.RULES_DEFINITION__LIVE_TO_DEAD:
-        getLiveToDead().clear();
-        getLiveToDead().addAll((Collection<? extends LiveToDeadRule>)newValue);
-        return;
-      case MyDslPackage.RULES_DEFINITION__LIVE_TO_ALIVE:
-        getLiveToAlive().clear();
-        getLiveToAlive().addAll((Collection<? extends LiveToAliveRule>)newValue);
-        return;
-      case MyDslPackage.RULES_DEFINITION__DEAD_TO_ALIVE:
-        getDeadToAlive().clear();
-        getDeadToAlive().addAll((Collection<? extends DeadToAliveRule>)newValue);
+      case MyDslPackage.RULES_DEFINITION__RULES:
+        getRules().clear();
+        getRules().addAll((Collection<? extends ruleDefinition>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -213,14 +143,8 @@ public class rulesDefinitionImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case MyDslPackage.RULES_DEFINITION__LIVE_TO_DEAD:
-        getLiveToDead().clear();
-        return;
-      case MyDslPackage.RULES_DEFINITION__LIVE_TO_ALIVE:
-        getLiveToAlive().clear();
-        return;
-      case MyDslPackage.RULES_DEFINITION__DEAD_TO_ALIVE:
-        getDeadToAlive().clear();
+      case MyDslPackage.RULES_DEFINITION__RULES:
+        getRules().clear();
         return;
     }
     super.eUnset(featureID);
@@ -236,12 +160,8 @@ public class rulesDefinitionImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case MyDslPackage.RULES_DEFINITION__LIVE_TO_DEAD:
-        return liveToDead != null && !liveToDead.isEmpty();
-      case MyDslPackage.RULES_DEFINITION__LIVE_TO_ALIVE:
-        return liveToAlive != null && !liveToAlive.isEmpty();
-      case MyDslPackage.RULES_DEFINITION__DEAD_TO_ALIVE:
-        return deadToAlive != null && !deadToAlive.isEmpty();
+      case MyDslPackage.RULES_DEFINITION__RULES:
+        return rules != null && !rules.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -120,6 +120,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     ruleDefinition returns DeadToAliveRule
 	 *     DeadToAliveRule returns DeadToAliveRule
 	 *
 	 * Constraint:
@@ -128,8 +129,8 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_DeadToAliveRule(ISerializationContext context, DeadToAliveRule semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.DEAD_TO_ALIVE_RULE__CONDITION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.DEAD_TO_ALIVE_RULE__CONDITION));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.RULE_DEFINITION__CONDITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.RULE_DEFINITION__CONDITION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDeadToAliveRuleAccess().getConditionConditionParserRuleCall_3_0(), semanticObject.getCondition());
@@ -140,6 +141,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     ruleDefinition returns LiveToAliveRule
 	 *     LiveToAliveRule returns LiveToAliveRule
 	 *
 	 * Constraint:
@@ -148,8 +150,8 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_LiveToAliveRule(ISerializationContext context, LiveToAliveRule semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.LIVE_TO_ALIVE_RULE__CONDITION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.LIVE_TO_ALIVE_RULE__CONDITION));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.RULE_DEFINITION__CONDITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.RULE_DEFINITION__CONDITION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getLiveToAliveRuleAccess().getConditionConditionParserRuleCall_3_0(), semanticObject.getCondition());
@@ -160,6 +162,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     ruleDefinition returns LiveToDeadRule
 	 *     LiveToDeadRule returns LiveToDeadRule
 	 *
 	 * Constraint:
@@ -168,8 +171,8 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_LiveToDeadRule(ISerializationContext context, LiveToDeadRule semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.LIVE_TO_DEAD_RULE__CONDITION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.LIVE_TO_DEAD_RULE__CONDITION));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.RULE_DEFINITION__CONDITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.RULE_DEFINITION__CONDITION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getLiveToDeadRuleAccess().getConditionConditionParserRuleCall_3_0(), semanticObject.getCondition());
@@ -260,11 +263,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     rulesDefinition returns rulesDefinition
 	 *
 	 * Constraint:
-	 *     (
-	 *         (liveToDead+=LiveToDeadRule* liveToAlive+=LiveToAliveRule+ deadToAlive+=DeadToAliveRule+) | 
-	 *         (liveToDead+=LiveToDeadRule* deadToAlive+=DeadToAliveRule+) | 
-	 *         deadToAlive+=DeadToAliveRule+
-	 *     )?
+	 *     rules+=ruleDefinition+
 	 * </pre>
 	 */
 	protected void sequence_rulesDefinition(ISerializationContext context, rulesDefinition semanticObject) {

@@ -272,60 +272,67 @@ rulerulesDefinition returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRulesDefinitionAccess().getLiveToDeadLiveToDeadRuleParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getRulesDefinitionAccess().getRulesRuleDefinitionParserRuleCall_1_0());
 				}
-				lv_liveToDead_1_0=ruleLiveToDeadRule
+				lv_rules_1_0=ruleruleDefinition
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRulesDefinitionRule());
 					}
 					add(
 						$current,
-						"liveToDead",
-						lv_liveToDead_1_0,
-						"gameofLife.MyDsl.LiveToDeadRule");
+						"rules",
+						lv_rules_1_0,
+						"gameofLife.MyDsl.ruleDefinition");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getRulesDefinitionAccess().getLiveToAliveLiveToAliveRuleParserRuleCall_2_0());
-				}
-				lv_liveToAlive_2_0=ruleLiveToAliveRule
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getRulesDefinitionRule());
-					}
-					add(
-						$current,
-						"liveToAlive",
-						lv_liveToAlive_2_0,
-						"gameofLife.MyDsl.LiveToAliveRule");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getRulesDefinitionAccess().getDeadToAliveDeadToAliveRuleParserRuleCall_3_0());
-				}
-				lv_deadToAlive_3_0=ruleDeadToAliveRule
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getRulesDefinitionRule());
-					}
-					add(
-						$current,
-						"deadToAlive",
-						lv_deadToAlive_3_0,
-						"gameofLife.MyDsl.DeadToAliveRule");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
+	)
+;
+
+// Entry rule entryRuleruleDefinition
+entryRuleruleDefinition returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getRuleDefinitionRule()); }
+	iv_ruleruleDefinition=ruleruleDefinition
+	{ $current=$iv_ruleruleDefinition.current; }
+	EOF;
+
+// Rule ruleDefinition
+ruleruleDefinition returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getRuleDefinitionAccess().getLiveToDeadRuleParserRuleCall_0());
+		}
+		this_LiveToDeadRule_0=ruleLiveToDeadRule
+		{
+			$current = $this_LiveToDeadRule_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getRuleDefinitionAccess().getLiveToAliveRuleParserRuleCall_1());
+		}
+		this_LiveToAliveRule_1=ruleLiveToAliveRule
+		{
+			$current = $this_LiveToAliveRule_1.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getRuleDefinitionAccess().getDeadToAliveRuleParserRuleCall_2());
+		}
+		this_DeadToAliveRule_2=ruleDeadToAliveRule
+		{
+			$current = $this_DeadToAliveRule_2.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
