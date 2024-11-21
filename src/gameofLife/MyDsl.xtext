@@ -1,0 +1,61 @@
+grammar gameofLife.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.MyDsl.gameofLife"
+
+//Model:
+//	greetings+=Greeting*;
+//	
+//Greeting:
+//	'Hello' name=ID '!';
+
+Model:
+	grid=gridDefinition
+	rules=rulesDefinition
+	steps=stepsDefinition
+;
+
+gridDefinition: 
+    'grid' width=INT 'x' height=INT 
+    ('alive' aliveCells+=CellCoord (',' aliveCells+=CellCoord)*)? // allow multiple cells with commas
+;
+
+rulesDefinition: 
+    'rules' 
+    liveToDead+=LiveToDeadRule* 
+    liveToAlive+=LiveToAliveRule* 
+    deadToAlive+=DeadToAliveRule* 
+;
+
+LiveToDeadRule:
+    'live_to_dead' 'if' 'neighbors' condition=Condition
+;
+
+LiveToAliveRule:
+    'live_to_alive' 'if' 'neighbors' condition=Condition
+;
+
+DeadToAliveRule:
+    'dead_to_alive' 'if' 'neighbors' condition=Condition
+;
+
+stepsDefinition: 
+    'steps' count=INT 
+;
+
+Condition: 
+    '>' number=INT 
+    | '<' number=INT 
+    | '=' number=INT 
+;
+
+CellCoord: // coordinate of a cell
+    '(' x=INT ',' y=INT ')' 
+;
+
+NeighborCheck: 
+    {NeighborCheck} 'check' 'neighbors' neighborList+=Neighbor* 
+;
+
+Neighbor: 
+    '(' dx=INT ',' dy=INT ')' 
+;

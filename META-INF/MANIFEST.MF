@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: gameofLife.mydsl
+Bundle-ManifestVersion: 2
+Bundle-Name: gameofLife.mydsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: gameofLife.mydsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.36.0",
+ org.eclipse.xtend.lib;bundle-version="2.36.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: gameofLife.scoping,
+ gameofLife.validation,
+ gameofLife.generator,
+ gameofLife.services,
+ gameofLife.myDsl,
+ gameofLife.myDsl.util,
+ gameofLife.parser.antlr,
+ gameofLife.parser.antlr.internal,
+ gameofLife.serializer,
+ gameofLife,
+ gameofLife.myDsl.impl
+Import-Package: org.apache.log4j
